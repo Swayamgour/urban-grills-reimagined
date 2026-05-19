@@ -1,26 +1,36 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { SmoothScroll } from "@/components/SmoothScroll";
+import { Hero } from "@/components/sections/Hero";
+import { Products } from "@/components/sections/Products";
+import { WhyUs } from "@/components/sections/WhyUs";
+import { Gallery } from "@/components/sections/Gallery";
+import { Process } from "@/components/sections/Process";
+import { Testimonials } from "@/components/sections/Testimonials";
+import { Faq } from "@/components/sections/Faq";
+import { FinalCta } from "@/components/sections/FinalCta";
 
 export const Route = createFileRoute("/")({
   component: Index,
+  head: () => ({
+    meta: [
+      { title: "Urban Invisible Grills — Invisible Safety. Uninterrupted Views." },
+      { name: "description", content: "Bangalore's premium invisible grill specialists. 10-year warranty, 5000+ installations, same-day service. Free site inspection." },
+    ],
+  }),
 });
 
-// IMPORTANT: Replace this placeholder. For sites with multiple pages (About, Services, Contact, etc.),
-// create separate route files (about.tsx, services.tsx, contact.tsx) — don't put all pages in this file.
-function PlaceholderIndex() {
-  return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
-}
-
 function Index() {
-  return <PlaceholderIndex />;
+  return (
+    <main className="bg-background text-foreground">
+      <SmoothScroll />
+      <Hero />
+      <Products />
+      <WhyUs />
+      <Gallery />
+      <Process />
+      <Testimonials />
+      <Faq />
+      <FinalCta />
+    </main>
+  );
 }
